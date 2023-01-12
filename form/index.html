@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form</title>
+  </head>
+
+  <body>
+    <!-- header start here -->
+    <header class="form-heading">
+      <h1>Form</h1>
+    </header>
+    <!-- header end here  -->
+    <!-- nav top start here -->
+    <nav class="form-navigation-top">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <!-- nav top end here -->
+    <!-- main start here -->
+    <main class="form-main">
+      <form action="#">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required /><br>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required /><br>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required /><br>
+        <label>Gender</label>
+        <label for="male">Male</label>
+        <input type="radio" id="male" name="gender" checked />
+        <label for="female">Female</label>
+        <input type="radio" id="female" name="gender"/><br>
+        <label for="age">Choose a Age:</label>
+        <select name="age" id="age">
+          <option value="0-25">0-25</option>
+          <option value="25-40">25-40</option>
+          <option value="40-60">40-60</option>
+          <option value="60-80">60-80</option>
+        </select><br>
+        <label>Hobby</label>
+        <label for="dancing">dancing</label>
+        <input type="checkbox" name="dancing" id="dancing" checked />
+        <label for="singing">singing</label>
+        <input type="checkbox" name="singing" id="singing" />
+        <label for="reading">reading</label>
+        <input type="checkbox" name="reading" id="reading" />
+        <label for="exercise">exercise</label>
+        <input type="checkbox" name="exercise" id="exercise" /><br>
+        <label for="address">Please Provide Age:</label>
+        <textarea id="address" name="address" rows="4" cols="50">Enter Address</textarea><br>
+        <input type="submit">
+        <input type="reset">
+      </form>
+    </main>
+    <!-- main end here -->
+    <!-- footer start here -->
+    <footer class="form-footer">
+        <h3>form@2023 All right reserve</h3>
+    </footer>
+    <!-- footer end here -->
+     <!-- nav bottom start here -->
+    <nav class="form-navigation-bottom">
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Disclaimer</a></li>
+          <li><a href="#">Term and Condition</a></li>
+        </ul>
+      </nav>
+       <!-- nav bottom start here -->
+  </body>
+</html>
