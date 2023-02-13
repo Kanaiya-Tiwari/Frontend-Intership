@@ -1,20 +1,120 @@
-html,body{
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-    background-color: #E0E0E0;;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+   
 }
-:root{
-    --white : #ffffff;
-    --fs-md : 18px;
+:root {
+  --white: #ffffff;
 }
-.btn-circle{
-    height: 60px;
+.heading {
+  display: inline-block;
+  margin: 100px;
+}
+.btn-circle {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: var(--white);
+  padding: 20px 25px;
+  position: absolute;
+}
+
+.heading-number {
+  padding-left: 80px;
+}
+
+.card {
+  position: absolute;
+  width: 255px;
+  height: 255px;
+  left: 107px;
+  top: 241px;
+
+  /* Orange/Orange */
+
+  background: #ff6633;
+  /* Shadows/Gray Blue 30/5%/5b */
+
+  box-shadow: 0px 2px 5px rgba(38, 51, 77, 0.05);
+  border-radius: 10px;
+}
+.iphone-image {
+  
+  width: 15.98px;
+  height: 19.6px;
+  left: 7px;
+  top: 5px;
+  padding-top: 30px;
+  padding-left: 30px;
+  /* White/White */
+ 
+}
+.span-card{
+   
+    width: 108px;
+    height: 30px;
+    
+    /* Bold/Bold 18 */
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    /* identical to box height, or 167% */
+    
+    margin-top: 200px;
+    margin-bottom: 135px;
+    /* White/White */
+    
+    color: #FFFFFF;
+    
+}
+.h5-card{
+   
+    width: 90px;
+height: 60px;
+
+/* Regular/Regular 36 */
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 36px;
+line-height: 60px;
+/* identical to box height, or 167% */
+
+
+/* White/White */
+
+color: #FFFFFF;
+}
+
+.card-span-h4{
+    margin-left:40px;
+    margin-right: 107px;
+   
+}
+
+.main{
+    display: inline-block;
+}
+
+.main-image{
     width: 60px;
-    border-radius: 50%;
-    background-color: var(--white);
+height: 60px;
+
+/* White/White */
+
+background: #FFFFFF;
+/* Shadows/Gray Blue 30/5%/5b */
+
+box-shadow: 0px 2px 5px rgba(38, 51, 77, 0.05);
+border-radius: 100px;
 }

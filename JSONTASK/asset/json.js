@@ -72,3 +72,74 @@ console.log(objectdata2)
    }
 
    console.log(JSON.stringify(obj1)==JSON.stringify(obj2))
+
+
+   let arr=[
+    {
+      id:1,
+      name:'ronak'
+    },
+    {
+      id:2,
+      name:'sameer'
+    },
+    {
+      id:3,
+      name:'sunil'
+    },
+    {
+      id:4,
+      name:'ronak'
+    },
+  ];
+
+  let dynamicId = 3;
+  // {
+  //   id:3,
+  //   name:'sunil'
+  // },
+
+//  let data=arr.find(())
+  //  for( let i=0;i<arr.length;i++)
+  //  {
+  //    // console.log(arr[i].id)
+
+  //     if(arr[i].id==3){
+  //       console.log(`array id is ${arr[i].id} and value is ${arr[i].name}`);
+  //     }
+  //  }
+
+  // let dataa=arr.filter(x=>x.id===3)
+  // console.log(dataa[0])
+  // let dataae=arr.find(x=>x.id===3)
+  // console.log(dataae)
+
+  let array=[3,4,12,10,9,7,16];
+ 
+  // 
+
+ // let arraysort=array.sort((a,b)=>a-b);
+  let arraysort=array.sort();
+  console.log(arraysort); 
+  let temp=[];
+  let vare;
+  for( let i=0;i<array.length;i++)
+  {
+    
+
+    for(j=i+1;j<array.length;j++)
+    {
+    if(array[i]<array[j]){
+        console.log("done");
+    }
+    else{
+      let local=array[j];
+      array[j]=array[i];
+      array[i]=local;
+
+    }                         
+    }
+
+    
+  }
+  console.log(array)

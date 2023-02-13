@@ -1,0 +1,191 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+
+}
+html,
+body{
+    background: #E0E0E0;
+}
+
+.header{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    margin-top: 23.5px;
+    
+}
+
+.header-icon{
+    
+    margin-left:25px;
+    width: 50px;
+height: 50px;
+background: #FFFFFF;
+border-radius: 50%;
+/* White/White */
+}
+.header-const{
+margin-left: 34px; 
+width: 97px;
+height: 30px;
+
+/* Bold/Bold 18 */
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 18px;
+line-height: 30px;
+/* identical to box height, or 167% */
+
+
+/* Gray Blue/Grey Blue 50 */
+
+color: #4D5E80;
+}
+.about{
+    margin-left: 48.5px;
+    width: 54px;
+height: 25px;
+
+/* Bold/Bold 13 */
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 25px;
+/* identical to box height, or 192% */
+
+
+/* Gray Blue/Grey Blue 70 */
+
+color: #7D8FB3;
+}
+.news{
+    margin-left: 30px;
+    width: 33px;
+height: 25px;
+
+/* Bold/Bold 13 */
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 25px;
+/* identical to box height, or 192% */
+
+
+/* Gray Blue/Grey Blue 70 */
+
+color: #7D8FB3;
+}
+
+.user-policy{
+    margin-left: 30px;
+    width: 67px;
+height: 25px;
+
+/* Bold/Bold 13 */
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 25px;
+/* identical to box height, or 192% */
+
+
+/* Gray Blue/Grey Blue 70 */
+
+color: #7D8FB3;
+}
+
+.contact{
+    margin-left: 30px;
+    width: 53px;
+height: 25px;
+
+/* Bold/Bold 13 */
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 25px;
+/* identical to box height, or 192% */
+
+
+/* Gray Blue/Grey Blue 70 */
+
+color: #7D8FB3;
+
+
+}
+.dot{
+    margin-left: 37px;
+}
+.user{
+    margin-left: 537.5px;
+}
+.santos{
+    margin-left: 20px;
+    width: 88px;
+height: 25px;
+
+/* Bold/Bold 13 */
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 700;
+font-size: 13px;
+line-height: 25px;
+/* identical to box height, or 192% */
+
+
+/* Gray Blue/Grey Blue 60 */
+
+color: #6B7A99;
+
+
+/* Inside auto layout */
+
+
+}
+.bell{
+    margin-left: 60px;
+    width: 50px;
+height: 50px;
+background: #FFFFFF;
+border-radius: 50%;
+position:relative
+
+}
+.bell-icon{
+    margin: 15px 15.5px 16px 17px ;
+   
+}
+
+.status{
+position: absolute;
+
+right:  0px;
+top: 0px;
+
+}
+.cross{
+    margin-left: 25px;
+    width: 50px;
+height: 50px;
+background: #FFFFFF;
+border-radius: 50%;
+}
+
+.cross-icon{
+    margin: 15px 16.5px 16px 17px ;
+}
