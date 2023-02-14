@@ -1,17 +1,21 @@
 
 //Write a JavaScript function that reverse a number.
-let rnumber=(...num)=>
+let rnumber=(number)=>
 {
-    let val= num.reverse();
-    return val;
+    console.log(number);
+    console.log(String(number).split(''));
+    let result = Number(String(number).split('').reverse().join(''));
+   // let val= num.reverse();
+    return result;
 }
 //Write a JavaScript function that returns a passed string with letters in alphabetical order.
-console.log(rnumber(1,11,15,21,3,4,5))
+console.log(rnumber(123456789))
 
 let aplhaString=(alpha)=>
-{   alpha.toUpperCase();
-    let data=alpha.split(" ");
-    console.log(data.sort());
+{   let  alphasort=alpha.toUpperCase();
+    let data=alphasort.split(" ");
+    console.log(data)
+    console.log("Sorted array= "+data.sort());
     
 }
 
@@ -28,7 +32,7 @@ let upperString=(upperAlpha)=>
       //  console.log(x);
         let just=x.charAt(0).toUpperCase();
         let resutlt=just.concat(x.slice(1));
-        console.log(resutlt);
+        console.log(`UPPERCASE LETTER IS ${resutlt}`);
     }
     // for( let i=0;i<upperAlpha.length;i++){
     //     console.log(upperAlpha[i])
@@ -78,7 +82,7 @@ if( allVowels != null ){
   var numberOfVowels = 0;  
 }
 
-console.log(numberOfVowels);
+console.log("NUMBER OF VOWEL"+numberOfVowels);
 
 }
 
@@ -132,9 +136,11 @@ name('John',meet);
 //  Write a JavaScript function to get the function name.
 
 function arguments() {
-    console.log( arguments );
-    console.log( arguments.callee );
+    //console.log( arguments );
+    //console.log( arguments.callee );
     console.log( arguments.callee.name );
+    //arguments.callee.name
 }
 
 arguments();
+
