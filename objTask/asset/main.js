@@ -9,25 +9,25 @@ let obj={
 
 
 // Write a JavaScript function to retrieve all the values of an object's properties.
-function objvalue(valuesdata)
+let  objvalue=(valuesdata)=>
 {
     return Object.values(valuesdata);
 }
 const data1=objvalue(obj);
 console.log(data1);
-
+//console.log("The object value is "+{data1});
 
 
 
 
 //Write a JavaScript function to convert an object into a list of `[key, value]` pairs.
 
-function objentries(valuesent)
+let objentries=(valuesent)=>
 {
     return Object.entries(valuesent);
 }
 const data2=objentries(obj);
-console.log(data2)
+console.log(data2);
 
 // let data2=Object.entries(obj);
 // console.log(data2);
@@ -36,7 +36,7 @@ console.log(data2)
 
 //Write a JavaScript function to get a copy of the object where the keys have become the values and the values the keys.
 
-function objectresign(resign){
+let objectreasign=(resign)=>{
     let newObj={};
     for (const key in resign) {
         newObj[resign[key]]=key;
@@ -45,7 +45,7 @@ function objectresign(resign){
     return newObj;
     
 }
-const data3=objectresign(obj);
+const data3=objectreasign(obj);
 console.log(data3);
 
 
@@ -69,23 +69,23 @@ for( let i=0;i<array.length;i++)
     if(count>max){
         max=count;
         max_value=array[i];
-        console.log(max_value);
+        //console.log(max_value);
     }
 }
 }
-console.log(`max value is ${max_value}`);
+//console.log(`max value is ${max_value}`);
 return max_value;
 }
 
 
-const new_data=frequent([1,2,3,2,3,6,8]);
-console.log(new_data);
+const new_data=frequent([1,2,3,2,6,8]);
+console.log(`Most frequent array is ${new_data}`);
 
 
 
 //Write a JavaScript program to remove duplicate items from an array (ignore case sensitivity)
 
-function removeduplicate(data1)
+let removeduplicate=(data1)=>
 {    return [...new Set(data1)];
 
 }
@@ -97,7 +97,7 @@ console.log(result1);
 
 //Write a JavaScript function to merge two arrays and removes all duplicates elements.
 
-function removeduplicatemerg(data1,data2)
+let removeduplicatemerg=(data1,data2)=>
 {
     const join=data1.concat(data2);
     return [...new Set(join)];
@@ -110,7 +110,7 @@ console.log(result2);
 
 //Write a JavaScript function to remove a specific element from an array.
 
-function removeSpecific(index)
+let removeSpecific=(index)=>
 {
     let array=[1,2,3,4,5,6,7,8];
     let remove=array.splice(index,1);
@@ -123,20 +123,20 @@ console.log(result3);
 
 
 //Write a JavaScript function to get a random item from an array.[1,2,3,4,5,6,7,8,9,10]
-function random(data){
-    const randomdata=Math.floor(Math.random()*10);
-    console.log(`random value is ${randomdata}`);
+let random=(data)=>{
+    const randomdata=Math.floor(Math.random()*data.length);
+   // console.log(`random value is ${randomdata}`);
     return data[randomdata]
 }
 
 const result4=random([1,2,3,4,5,6,7,8,9,10]);
-console.log(result4);
+console.log(`random value is ${result4}`);
 
 
 
 //Write a JavaScript function to filter false, null, 0 and blank values from an array.[58, '', 'abcd', true, null, false, 0]
 
-function removefalse(data){
+let removefalse=(data)=>{
         return data.filter(value=>{
             if (value!==false || value!==null || value !== 0 || value !== "")
             {   
