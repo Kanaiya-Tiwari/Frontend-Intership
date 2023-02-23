@@ -1,0 +1,85 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html,body{
+    display: flex;   
+ align-items: center;
+ gap:20px;
+ width: 100%;
+ justify-content: center;
+ height: 100%;
+}
+.card{
+ display: flex;   
+ align-items: center;
+ gap:40px;
+ width: 1000px;
+ justify-content: center;
+ height: 600px;
+ 
+}
+.card-one{
+    display: flex; 
+     height: 100%;
+     width: 310px;
+    flex-direction: column;
+    gap:20px;
+    justify-content: center;
+    padding: 40px;
+    background-color: green; 
+}
+.card-two{
+    display: flex;  
+    flex-direction: column;
+    gap:20px;
+    height: 100%;
+    width: 310px;
+    justify-content: center;
+    padding: 40px;
+    background-color: green; 
+}
+.card-three{
+    display: flex;  
+    flex-direction: column;
+    gap:20px;
+    height: 100%;
+    width: 310px;
+    justify-content: center;
+    padding: 40px;
+    background-color: green; 
+}
+ /* display: flex;
+ justify-content: center;
+
+ background-color: blue;
+ width: 100%;  
+ height: 600px;*/
+ .card-one-button{
+background-color: black;
+text-align: center;
+color: white;
+border-radius: 100px;
+height:60px;
+width: 220px;
+ }
+ .card-two-button{
+    background-color: black;
+    text-align: center;
+    color: white;
+    border-radius: 100px;
+    height:60px;
+    width: 220px;
+     }
+    
+     .card-three-button{
+        background-color: black;
+        text-align: center;
+        color: white;
+        border-radius: 100px;
+        height:60px;
+        width: 220px;
+         }
+        
