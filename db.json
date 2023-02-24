@@ -1,0 +1,76 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "employee": [
+    {
+      "name": "yadav",
+      "technology": "devop",
+      "id": 1
+    },
+    {
+      "name": "yadav",
+      "technology": "usa",
+      "id": 2
+    },
+    {
+      "name": "yadav",
+      "technology": "java",
+      "id": 3
+    },
+    {
+      "name": "yadav",
+      "technology": "java",
+      "id": 4
+    },
+    {
+      "name": "pawan",
+      "technology": "java",
+      "id": 5
+    },
+    {
+      "name": "rahul",
+      "technology": "devops",
+      "id": 6
+    },
+    {
+      "name": "sonu",
+      "technology": "java",
+      "id": 7
+    },
+    {
+      "name": "sonu",
+      "technology": "javas",
+      "id": 8
+    },
+    {
+      "name": "raman",
+      "technology": "php",
+      "id": 9
+    },
+    {
+      "name": "ramam",
+      "technology": "rust",
+      "id": 10
+    },
+    {
+      "name": "sunil",
+      "technology": "vb.net",
+      "id": 11
+    }
+  ]
+}

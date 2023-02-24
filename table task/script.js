@@ -1,18 +1,38 @@
 "use strict";
 
+
+
+//
+
+document.addEventListener("DOMContentLoaded",(e)=>{
+    alert("please vait will data is loaded");
+})
+//
+
 // window load eventv start here
 
+fetch("http://localhost:3000/employee").then(respone=>respone.json()).then(data=>sessionStorage.setItem("data",JSON.stringify(data))).catch(error=>console.log(error));
 
 window.addEventListener("load",(e)=>{
-  fetch("http://localhost:3000/employee").then(respone=>respone.json()).then(data=>sessionStorage.setItem("data",JSON.stringify(data))).catch(error=>console.log(error));
+ 
+    
  document.getElementById("update").disabled = true;
 
-// const employee=[
-//     {"id": "1","NAme": "Vipul","technology": "Java","action":""},
-// ];
+})
+
+//let form=document.querySelector("form");
 const employee=["id", "NAme","technology","Action"];
-let table=document.querySelector("table");
-// let data=Object.keys(employee[0]);
+let table=document.querySelector("#table");
+
+
+let observer= new MutationObserver((data)=>{
+    console.log(data);
+    fetch("http://localhost:3000/employee").then(respone=>respone.json()).then(data=>sessionStorage.setItem("data",JSON.stringify(data))).catch(error=>console.log(error));
+})
+
+observer.observe(table,{
+    childList:true
+})
 
 function generateTableHead(table,data){
     let thead=table.createTHead();
@@ -21,81 +41,65 @@ function generateTableHead(table,data){
         let th=document.createElement('th');
         let text=document.createTextNode(key);
         th.appendChild(text);
-        row.appendChild(th);
-        
+        row.appendChild(th);   
     }
-
 }
 
 function generateTableBody(table,data){
     let tbody=table.createTBody();
-    for (const element of data)
-     {
+    data.map((item)=>{
         let row=tbody.insertRow();
-        var btn1=document.createElement("button");
-        btn1.setAttribute("id","edit");
+        //var btn1=document.createElement("button");
+        let cell=row.insertCell();
+             let text1=document.createTextNode(item.id);
+             cell.appendChild(text1);  
+             let text2=document.createTextNode(item.name);
+             cell.appendChild(text2);  
+             let text3=document.createTextNode(item.technology);
+             cell.appendChild(text3);  
+             var btn1=document.createElement("button");
+        btn1.setAttribute("id",item.id);
         btn1.innerText="Edit";
         var btn2=document.createElement("button");
-        btn2.setAttribute("id","delete");
+        btn2.setAttribute("id",item.id);
         btn2.innerText="Delete";
-        for (const key in element) {
-            let cell=row.insertCell();
-            let text=document.createTextNode(element[key]);
-            
-            cell.appendChild(text);   
-            cell.appendChild(btn1);
-            cell.appendChild(btn2);
-           
-        }
-      
-     
-    }
-  
+        cell.appendChild(btn1);
+          cell.appendChild(btn2);
+          
+          btn1.onclick=()=>showfunction(item.id,item.name,item.technology);
+          btn2.onclick=()=>showfunction2(item.id); 
+               
+    })
 
-    document.querySelectorAll("#edit").forEach(box => {
-        box.addEventListener('click', (event) =>{
-          console.log('box clicked');
-          console.log(event.target.parentElement.previousSibling.previousSibling.innerText);
-        //   console.log(arguments);
-        let name=event.target.parentElement.previousSibling.previousSibling.innerText;
-        let technology=event.target.parentElement.previousSibling.innerText;
-     
-      console.log(event.target);
-        let id=event.target.parentElement.childNodes[0].textContent;
-        console.log(id);
-        console.log(name);
-        console.log(technology);
+
+    function showfunction(id,name,technology)
+    {
+        console.log("key"+id);
+        console.log("key"+name);
+        console.log("key"+technology);
         let datavalue={id:id,name:name,technology,technology};
-        console.log(datavalue);
-        // console.log(String(technology));
         document.getElementById("name").value=name;
         document.getElementById("technology").value=technology;
         document.getElementById("save").disabled=true;
         document.getElementById("update").disabled=false;
-        // let datavalue={id:id,name:name,technology,technology};
-        // console.log(datavalue);
         sessionStorage.setItem("data2",JSON.stringify(datavalue));
-        
-       
-        });
-      });
+    }
     
+    function showfunction2(id)
+    {
+        console.log('box clicked');
+        
+        console.log(id);
+        fetch(`http://localhost:3000/employee/${id}`, { method: 'DELETE' }).then(response=>response.json()).then(data=>console.log(data)).catch(error=>console.log(error));
 
-      document.querySelectorAll("#delete").forEach(box => {
-        box.addEventListener('click', (event) =>{
-          console.log('box clicked');
-          let id=event.target.parentElement.childNodes[0].textContent;
-          console.log(id);
-          fetch(`http://localhost:3000/employee/${id}`, { method: 'DELETE' }).then(response=>response.json()).then(data=>console.log(data)).catch(error=>console.log(error));
-        });
-      });
-      
+    } 
 }
 let data1=JSON.parse(sessionStorage.getItem("data"));
 console.log(data1);
 generateTableHead(table,employee);
 generateTableBody(table,data1);
-})
+
+
 
 // window load event event here    
 
@@ -129,19 +133,6 @@ document.getElementById("technology").oninput=function(e){
     }
     
 }
-// document.getElementById("name").oninput=function(e){
-//     console.log(e.target.value);
-//     if(e.target.value)
-//     {
-        
-//         window.addEventListener('beforeunload', (event) => {
-    
-//        return event.returnValue="something random";
-//      });
-//     }
-    
-// }
-
 
 
 // a type of validation end here
@@ -164,7 +155,12 @@ else{
     };
     fetch('http://localhost:3000/employee', requestOptions)
     .then(response => response.json())
-    .then(data => console.log(data)).catch(error=>console.log(error));
+    .then(data =>
+         {
+            console.log(data);
+           
+        
+        }).catch(error=>console.log(error));
 }
 
 })
@@ -206,7 +202,3 @@ else{
 
 }
 })
-
-
-
-//console.log(data);  
