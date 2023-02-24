@@ -1,5 +1,14 @@
 "use strict";
 
+
+
+//
+
+document.addEventListener("DOMContentLoaded",(e)=>{
+    alert("please vait will data is loaded");
+})
+//
+
 // window load eventv start here
 
 fetch("http://localhost:3000/employee").then(respone=>respone.json()).then(data=>sessionStorage.setItem("data",JSON.stringify(data))).catch(error=>console.log(error));
@@ -10,8 +19,20 @@ window.addEventListener("load",(e)=>{
  document.getElementById("update").disabled = true;
 
 })
+
+//let form=document.querySelector("form");
 const employee=["id", "NAme","technology","Action"];
-let table=document.querySelector("table");
+let table=document.querySelector("#table");
+
+
+let observer= new MutationObserver((data)=>{
+    console.log(data);
+    fetch("http://localhost:3000/employee").then(respone=>respone.json()).then(data=>sessionStorage.setItem("data",JSON.stringify(data))).catch(error=>console.log(error));
+})
+
+observer.observe(table,{
+    childList:true
+})
 
 function generateTableHead(table,data){
     let thead=table.createTHead();
@@ -181,3 +202,4 @@ else{
 
 }
 })
+
