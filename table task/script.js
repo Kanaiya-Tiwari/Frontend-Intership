@@ -161,6 +161,7 @@ else{
            
         
         }).catch(error=>console.log(error));
+     alert("data enter");
 }
 
 })
@@ -202,7 +203,3 @@ else{
 
 }
 })
-<<<<<<< HEAD
-=======
-
->>>>>>> 68a8320c0e9a37cfb62a6103779d0ed9cc2fe98a
