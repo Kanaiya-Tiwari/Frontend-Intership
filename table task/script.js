@@ -1,38 +1,37 @@
 "use strict";
 
-
-
-//
-
-document.addEventListener("DOMContentLoaded",(e)=>{
-    alert("please vait will data is loaded");
-})
-//
-
 // window load eventv start here
 
-fetch("http://localhost:3000/employee").then(respone=>respone.json()).then(data=>sessionStorage.setItem("data",JSON.stringify(data))).catch(error=>console.log(error));
 
-window.addEventListener("load",(e)=>{
- 
+const employee=["Id", "Name","Technology","Action"];
     
- document.getElementById("update").disabled = true;
-
-})
-
-//let form=document.querySelector("form");
-const employee=["id", "NAme","technology","Action"];
 let table=document.querySelector("#table");
 
 
-let observer= new MutationObserver((data)=>{
-    console.log(data);
-    fetch("http://localhost:3000/employee").then(respone=>respone.json()).then(data=>sessionStorage.setItem("data",JSON.stringify(data))).catch(error=>console.log(error));
+ 
+window.addEventListener("load",(e)=>{
+    document.getElementById("update").disabled=true;
+    generateTableHead(table,employee);
+    getEmployeeData("http://localhost:3000/employee/");
 })
 
-observer.observe(table,{
-    childList:true
-})
+
+async function getEmployeeData(url){
+    try{
+        console.log("data");
+        let res=  await fetch(url);
+        let data= await res.json();
+        console.log(data);
+        
+        generateTableBody(data);
+    }
+    catch(error)
+    {
+        console.log(error)
+    }    
+}
+
+
 
 function generateTableHead(table,data){
     let thead=table.createTHead();
@@ -45,99 +44,87 @@ function generateTableHead(table,data){
     }
 }
 
-function generateTableBody(table,data){
+function generateTableBody(data){
+
     let tbody=table.createTBody();
-    data.map((item)=>{
-        let row=tbody.insertRow();
-        //var btn1=document.createElement("button");
-        let cell=row.insertCell();
-             let text1=document.createTextNode(item.id);
-             cell.appendChild(text1);  
-             let text2=document.createTextNode(item.name);
-             cell.appendChild(text2);  
-             let text3=document.createTextNode(item.technology);
-             cell.appendChild(text3);  
-             var btn1=document.createElement("button");
-        btn1.setAttribute("id",item.id);
-        btn1.innerText="Edit";
-        var btn2=document.createElement("button");
-        btn2.setAttribute("id",item.id);
-        btn2.innerText="Delete";
-        cell.appendChild(btn1);
-          cell.appendChild(btn2);
-          
-          btn1.onclick=()=>showfunction(item.id,item.name,item.technology);
-          btn2.onclick=()=>showfunction2(item.id); 
-               
-    })
+    console.log(data);
+   
+    for (const item of data) {
+        let row=document.createElement("tr");
+        //tbody.replaceChild(row,);
+        tbody.appendChild(row);
+        let cell=document.createElement("td");
+        let text1=document.createTextNode(item.id);
+        // cell.innerText=text1;
+        //  row.innerHTML=cell;
+         cell.appendChild(text1);
+          row.appendChild(cell);
+        
+        
+         let cell2=document.createElement("td"); 
+        let text2=document.createTextNode(item.name);
+        cell2.appendChild(text2);  
+        row.appendChild(cell2);
 
 
-    function showfunction(id,name,technology)
+        let cell3=document.createElement("td");
+        let text3=document.createTextNode(item.technology);
+        cell3.appendChild(text3); 
+        row.appendChild(cell3);
+
+
+
+        let cell4=document.createElement("td");
+        var editbtn=document.createElement("button");
+        editbtn.className="edit";
+        let editbuttonText=document.createTextNode("edit");
+        editbtn.appendChild(editbuttonText);
+        cell4.appendChild(editbtn);
+        row.appendChild(cell4);
+
+        let cell5=document.createElement("td");
+        var deletebtn=document.createElement("button");
+        deletebtn.className="delete";
+        let deletebtntext=document.createTextNode("delete");
+        deletebtn.appendChild(deletebtntext);
+        cell4.appendChild(deletebtn);
+        row.appendChild(cell4);
+
+          editbtn.onclick=()=>editEmployee(item.id,item.name,item.technology);
+          deletebtn.onclick=()=>deleteEmployee(item.id); 
+    }
+} 
+
+
+
+   
+
+    function editEmployee(id,name,technology)
     {
-        console.log("key"+id);
-        console.log("key"+name);
-        console.log("key"+technology);
-        let datavalue={id:id,name:name,technology,technology};
+        console.log("called");
         document.getElementById("name").value=name;
         document.getElementById("technology").value=technology;
         document.getElementById("save").disabled=true;
         document.getElementById("update").disabled=false;
-        sessionStorage.setItem("data2",JSON.stringify(datavalue));
+        
+        fetch(`http://localhost:3000/employee/${id}`).then(respone=>respone.json()).then(data=>{sessionStorage.setItem("data2",JSON.stringify(data));}).catch(error=>console.log(error))
     }
     
-    function showfunction2(id)
+    function deleteEmployee(id)
     {
-        console.log('box clicked');
-        
         console.log(id);
-        fetch(`http://localhost:3000/employee/${id}`, { method: 'DELETE' }).then(response=>response.json()).then(data=>console.log(data)).catch(error=>console.log(error));
+        fetch(`http://localhost:3000/employee/${id}`, { method: 'DELETE' }).then(response=>response.json()).then(data=>
+    {    
+        console.log(data)
+         getEmployeeData("http://localhost:3000/employee");
+    }
+    ).catch(error=>console.log(error));
 
     } 
-}
-let data1=JSON.parse(sessionStorage.getItem("data"));
-console.log(data1);
-generateTableHead(table,employee);
-generateTableBody(table,data1);
 
 
 
-// window load event event here    
-
-// a type of validation start here
-
-
-
-document.getElementById("name").oninput=function(e){
-    console.log(e.target.value);
-    if(e.target.value)
-    {
-        
-        window.addEventListener('beforeunload', (event) => {
-    
-       return event.returnValue="something random";
-     });
-    }
-    
-}
-
-
-document.getElementById("technology").oninput=function(e){
-    console.log(e.target.value);
-    if(e.target.value)
-    {
-        
-        window.addEventListener('beforeunload', (event) => {
-    
-       return event.returnValue="something random";
-     });
-    }
-    
-}
-
-
-// a type of validation end here
-
-// input data
+//  input data
 document.getElementById("save").addEventListener("click",(e)=>{
     let nameData=document.getElementById("name").value;
 let technologyData=document.getElementById("technology").value;
@@ -158,6 +145,8 @@ else{
     .then(data =>
          {
             console.log(data);
+            
+             getEmployeeData("http://localhost:3000/employee");
            
         
         }).catch(error=>console.log(error));
@@ -167,6 +156,8 @@ else{
 })
 
 // save event end here
+
+
 
 // update event end here
 document.getElementById("update").addEventListener("click",(e)=>{
@@ -181,10 +172,6 @@ else{
    
     let datavalue=JSON.parse(sessionStorage.getItem("data2"));
     let {id,name,technology}=datavalue;
-    console.log("id is "+id);
-    console.log("name is"+nameData);
-    console.log("technology is"+technologyData);
-    //console.log(data);
     const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -194,12 +181,10 @@ else{
     .then(response => response.json())
     .then(data => 
         {console.log(data);
-            // if(data)
-            //{
-             //   window.location.reload();
-           // }
+            getEmployeeData("http://localhost:3000/employee");
         }).catch(error=>console.log(error));
     document.getElementById("update").disabled=true;
 
 }
 })
+
