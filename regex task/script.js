@@ -110,23 +110,20 @@ document.querySelector("#submit").addEventListener("click",(e)=>{
     document.getElementById("salary-span").innerHTML="sucess";
   }
 
+let passwordRegx =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,16}$/;
+  if (password.trim() == "" || !password.match(passwordRegx)) {
+    document.getElementById("password-span").innerHTML = "Enter the valid password";
+    
+    inputColor.style.border = "1px solid red";
+  } else {
 
 
-  // valdation for password
 
-  if(password.trim()==""){
-    document.getElementById("password-span").innerHTML="Please enter password;";
-  }
-  else if(!salary.trim()>5000)
-  {
-    document.getElementById("password-span").innerHTML="Salary greter than 5000 ";
-
-  }
-  else{
-    document.getElementById("password-span").className="sucess";
-    document.getElementById("password-span").innerHTML="";
+    console.log("correct password");
+    true;
   }
 
-});
+  
 
 
